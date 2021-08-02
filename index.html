@@ -1,0 +1,32 @@
+<html>
+<head>
+<script>
+function getMobileOS() {
+  var userAgent = navigator.userAgent || navigator.vendor || window.opera;
+
+    if (/android/i.test(userAgent)) {
+        return "Android";
+    }
+
+    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
+        return "iOS";
+    }
+
+    return "unknown";
+}</script>
+
+<script>
+function DetectAndServe(){
+    let os = getMobileOS();
+    if (os == "Android") {
+        window.location.href = "https://play.google.com/store/apps/details?id=br.com.drogasil&hl=pt_BR"; 
+    } else if (os == "iOS") {
+        window.location.href = "https://apps.apple.com/br/app/drogasil/id1328994276";
+    } else {
+        window.location.href = "https://drogasil.com.br";
+    }
+}
+</script>
+</head>
+<body onload="DetectAndServe()">
+</html>
